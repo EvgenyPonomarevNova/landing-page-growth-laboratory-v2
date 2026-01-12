@@ -1,1 +1,1 @@
-# landing-page-growth-laboratory-v2
+# landing-page-growth-laboratory
