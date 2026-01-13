@@ -1100,6 +1100,7 @@ footer {
   .services,
   .benefits {
     grid-template-columns: 1fr;
+    display: grid;
   }
   .hero-actions {
     flex-direction: column;
@@ -1116,6 +1117,27 @@ footer {
     padding: 10px 12px;
     font-size: 12px;
   }
+  .stat-floats {
+    position: absolute;
+    right: 49px;
+    bottom: -101px;
+    display: grid;
+    gap: 10px;
+    width: min(340px, 46%);
+    z-index: 4;
+}
+.contact { 
+  display: block;
+}
+.benefits {
+  gap: 16px;
+}
+.brand-mark {
+    height: 120px;
+}
+.cc-foot .row {
+    margin: 0 auto;
+}
 }
 
 /* ---------- REDUCED MOTION ---------- */
@@ -1127,5 +1149,218 @@ footer {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   APPEND-ONLY: Adaptive + cross-browser hardening (Safari / iOS / macOS)
+   ВАЖНО: ниже только добавочные переопределения (внутри @media/@supports),
+   чтобы десктоп-верстка (как сейчас) не менялась.
+   ========================================================================== */
+
+/* --- Safari backdrop-filter prefix (macOS/iOS) --- */
+@supports (-webkit-backdrop-filter: blur(1px)) {
+  .hdr,
+  .tooltip {
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
+
+/* --- iOS text scaling / smoothing (scoped) --- */
+@supports (-webkit-touch-callout: none) {
+  html { -webkit-text-size-adjust: 100%; }
+  body { -webkit-font-smoothing: antialiased; }
+}
+
+/* --- iOS safe-area insets for notch devices --- */
+@supports (padding: max(0px)) {
+  .hdr { padding-top: max(0px, env(safe-area-inset-top)); }
+  .modal { padding-top: max(16px, env(safe-area-inset-top)); }
+  .container {
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+  }
+}
+
+/* --- Prevent iOS Safari input zoom (font-size >= 16px) --- */
+@supports (-webkit-touch-callout: none) {
+  input, select, textarea { font-size: 16px; }
+}
+
+/* --- Fix iOS 100vh issues: use dynamic/small viewport units when supported --- */
+@supports (height: 100svh) { .modal { min-height: 100svh; } }
+@supports (height: 100dvh) { .modal { min-height: 100dvh; } }
+
+/* --- Touch devices: soften hover-only lifts that feel "jumpy" --- */
+@media (hover: none) and (pointer: coarse) {
+  .btn:hover,
+  .iconbtn:hover,
+  .tag:hover,
+  .logo-pill:hover,
+  .benefit:hover,
+  .svc:hover {
+    transform: none !important;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (device-oriented)
+   Принцип: уточняем размеры/сетки/отступы на реальных ширинах устройств,
+   не трогая десктоп (все изменения ниже — только в media queries).
+   ========================================================================== */
+
+/* Fix: occasional mobile horizontal scroll (iOS Safari / shadows / absolute blocks) */
+@media (max-width: 1020px) {
+  html, body { overflow-x: clip; }
+  @supports not (overflow: clip) { html, body { overflow-x: hidden; } }
+
+  /* Ensure [hidden] works even if .mobile is shown by CSS */
+  .mobile[hidden] { display: none !important; }
+}
+
+/* 1440–1281: большие ноутбуки/широкие экраны — чуть компактнее визуал */
+@media (max-width: 1440px) {
+  .container { width: min(var(--container), calc(100% - 44px)); }
+  .hero { padding: 54px 0 34px; }
+  .hero-grid { gap: 34px; }
+}
+
+/* 1280: типичный ноутбук (MacBook 13/14, Windows) */
+@media (max-width: 1280px) {
+  .container { width: min(var(--container), calc(100% - 40px)); }
+  .links { gap: 18px; font-size: 14px; }
+  .hero-grid { gap: 28px; }
+  .hero { padding: 50px 0 32px; }
+}
+
+/* 1200: компактные ноутбуки */
+@media (max-width: 1200px) {
+  .container { width: min(var(--container), calc(100% - 36px)); }
+  .nav { padding: 12px 0; }
+  .btn { padding: 10px 16px; }
+}
+
+/* 1020: уже есть базовый брейкпоинт — добавим аккуратные уточнения */
+@media (max-width: 1020px) {
+  .nav { gap: 12px; }
+  .cta { gap: 8px; }
+
+  /* Make mobile links a bit more tappable */
+  .mobile a { padding: 12px 12px; border-radius: 16px; }
+
+  /* KPI block: avoid overflowing on narrow tablets */
+  .chart-kpi { max-width: calc(100% - 12px); }
+}
+
+/* 900: iPad portrait / small tablets */
+@media (max-width: 900px) {
+  .hero { padding: 46px 0 30px; }
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .chart { height: 250px; }
+}
+
+/* 820: iPad ranges */
+@media (max-width: 820px) {
+  section { padding: 56px 0; }
+  .hero-grid { gap: 22px; }
+  .pill-row { gap: 8px; }
+  .pill { font-size: 11px; }
+}
+
+/* 720: large phones / small tablets */
+@media (max-width: 720px) {
+  .container { width: min(var(--container), calc(100% - 28px)); }
+  h1 { font-size: clamp(32px, 7vw, 44px); }
+  .lead { font-size: 15px; }
+  .hero-actions { gap: 10px; }
+
+  .chart-head { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .legend { gap: 8px; }
+}
+
+/* 600: common phones */
+@media (max-width: 600px) {
+  .nav { padding: 10px 0; }
+  .btn, .iconbtn { min-height: 40px; }
+  .kpi-num { font-size: 34px; }
+}
+
+/* 560: базовый брейкпоинт уже есть — добавить только микро-фиксы */
+@media (max-width: 560px) {
+  section { padding: 52px 0; }
+  .hero { padding: 42px 0 26px; }
+
+  /* Keep buttons readable + full width in stacked hero-actions */
+  .hero-actions .btn { width: 100%; }
+
+  .chart { height: 232px; }
+  .tooltip { white-space: normal; max-width: 240px; }
+  .cases-track { grid-auto-columns: minmax(260px, 1fr); }
+}
+
+/* 480: iPhone Plus / small Android */
+@media (max-width: 480px) {
+  .container { width: min(var(--container), calc(100% - 24px)); }
+  .brand-txt em { display: none; } /* keep header clean */
+  .logo-wrapper { width: 140px; height: 48px; }
+
+  .cases-track { grid-auto-columns: minmax(240px, 1fr); }
+}
+
+/* 430: iPhone 15 Pro Max / 14 Pro Max width */
+@media (max-width: 430px) {
+  h1 { font-size: 32px; }
+  .kpi-num { font-size: 32px; }
+}
+
+/* 414: iPhone 11/12/13/14 Pro Max width */
+@media (max-width: 414px) {
+  h2 { font-size: 26px; }
+  .chart { height: 224px; }
+}
+
+/* 390: iPhone 12/13/14 width */
+@media (max-width: 390px) {
+  h1 { font-size: 30px; }
+  .lead { font-size: 14px; }
+  .cases-track { grid-auto-columns: minmax(228px, 1fr); }
+}
+
+/* 375: iPhone SE (new) / legacy iPhones */
+@media (max-width: 375px) {
+  .container { width: min(var(--container), calc(100% - 20px)); }
+  .kicker { font-size: 12px; }
+  .pill { font-size: 11px; }
+  .chart { height: 216px; }
+}
+
+/* 360: many Android devices */
+@media (max-width: 360px) {
+  h1 { font-size: 28px; }
+  .btn { padding: 10px 14px; }
+}
+
+/* Landscape phones (iPhone/Android) — avoid huge hero & keep chart visible */
+@media (max-height: 430px) and (orientation: landscape) {
+  .hero { padding: 26px 0 18px; }
+  .chart { height: 200px; }
+  section { padding: 44px 0; }
+}
+
+/* High-contrast preference */
+@media (prefers-contrast: more) {
+  .card, .svc, .benefit, .case, .panel { border-color: var(--stroke2); }
+  .links a::after { transform: scaleX(1); opacity: .7; }
+}
+@media (max-width: 1020px) {
+  .mobile {
+    display: block;
+  }
+  .mobile[hidden] {
+    display: none !important;
   }
 }
