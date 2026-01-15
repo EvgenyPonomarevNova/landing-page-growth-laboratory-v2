@@ -107,8 +107,6 @@
   
   // Инициализируем тему СРАЗУ при загрузке
   initTheme();
-
-  // ===== ОСТАЛЬНОЙ КОД БЕЗ ИЗМЕНЕНИЙ =====
   
   // Smooth scroll
   document.documentElement.style.scrollBehavior = 'smooth';
