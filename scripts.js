@@ -6,6 +6,42 @@
 
   const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // ===== Preloader (2s) =====
+  const preloader = document.getElementById('site-preloader');
+  const PRELOAD_MIN_MS = 2000;
+  const preloadStart = (typeof window.__preloadStart === 'number') ? window.__preloadStart : performance.now();
+
+  const endPreloader = () => {
+    if (!preloader) {
+      document.documentElement.classList.remove('is-loading');
+      return;
+    }
+    preloader.classList.add('is-done');
+    document.documentElement.classList.remove('is-loading');
+
+    // remove node after fade
+    window.setTimeout(() => {
+      try { preloader.remove(); } catch (e) { preloader.parentNode && preloader.parentNode.removeChild(preloader); }
+    }, 550);
+  };
+
+  // If the loader exists and user prefers reduced motion, show it instantly then fade out fast.
+  if (preloader && reduceMotion) {
+    // make the bar appear full (CSS sets it)
+    window.addEventListener('load', () => {
+      const elapsed = performance.now() - preloadStart;
+      const wait = Math.max(0, 250 - elapsed);
+      window.setTimeout(endPreloader, wait);
+    }, { once: true });
+  } else {
+    window.addEventListener('load', () => {
+      const elapsed = performance.now() - preloadStart;
+      const wait = Math.max(0, PRELOAD_MIN_MS - elapsed);
+      window.setTimeout(endPreloader, wait);
+    }, { once: true });
+  }
+
+
   // ===== МГНОВЕННОЕ ПЕРЕКЛЮЧЕНИЕ ТЕМЫ =====
   const STORAGE_KEY = 'growth-lab-theme';
   

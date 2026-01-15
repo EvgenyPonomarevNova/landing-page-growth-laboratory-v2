@@ -299,7 +299,7 @@ a:hover {
 }
 .brand-mark {
   width: 100%;
-  max-height: 120px;
+  max-height: 60px;
   border-radius: 16px;
   object-fit: cover;
   transition: opacity 0.3s ease;
@@ -1683,6 +1683,11 @@ footer {
 .contact { 
   display: block;
 }
+
+.frow { 
+  display: block;
+  text-align: center;
+}
 .benefits {
   gap: 16px;
 }
@@ -1698,6 +1703,16 @@ footer {
 .cta {
         margin-left: auto;
     }
+}
+
+@media (max-width: 375px) {
+
+      .stat-floats {
+        right: 80px;
+    }
+    .chart-kpi {
+      top: 158px;
+     }
 }
 
 /* ---------- REDUCED MOTION ---------- */
@@ -1938,4 +1953,222 @@ footer {
   .mobile[hidden] {
     display: none !important;
   }
+}
+
+
+/* =========================
+   PRELOADER (2s) — "wow" pack
+   ========================= */
+html.is-loading,
+html.is-loading body {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Hide page content while loader is up (prevents flash) */
+html.is-loading body > *:not(.site-preloader) {
+  opacity: 0;
+  transform: translateY(8px);
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+/* Smooth reveal once loading class is removed */
+body > *:not(.site-preloader) {
+  transition: opacity .55s ease, transform .55s ease, filter .55s ease;
+}
+
+.site-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(1000px 600px at 15% 20%, rgba(255,255,255,.06), transparent 60%),
+              radial-gradient(900px 520px at 85% 70%, rgba(255,255,255,.05), transparent 58%),
+              linear-gradient(135deg, rgba(0,0,0,.92), rgba(0,0,0,.96));
+  color: #fff;
+  opacity: 1;
+  pointer-events: all;
+  transition: opacity .45s ease;
+}
+
+.site-preloader .spl-bg{
+  position:absolute; inset:0;
+  background:
+    radial-gradient(1200px 700px at 10% 25%, color-mix(in srgb, var(--a1) 55%, transparent), transparent 62%),
+    radial-gradient(900px 520px at 90% 70%, color-mix(in srgb, var(--a3) 45%, transparent), transparent 58%),
+    radial-gradient(800px 420px at 60% 10%, color-mix(in srgb, var(--a2) 35%, transparent), transparent 60%);
+  filter: saturate(1.1) blur(0px);
+  opacity: .75;
+  mix-blend-mode: screen;
+}
+
+.site-preloader .spl-noise{
+  position:absolute; inset:-40px;
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.018), rgba(255,255,255,.018) 1px, transparent 1px, transparent 3px);
+  opacity: .28;
+  mix-blend-mode: overlay;
+  filter: blur(.2px);
+  animation: splNoise 1.2s steps(2,end) infinite;
+}
+
+.site-preloader .spl-scanlines{
+  position:absolute; inset:0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.0)),
+    repeating-linear-gradient(180deg,
+      rgba(255,255,255,.035) 0px,
+      rgba(255,255,255,.035) 1px,
+      transparent 1px,
+      transparent 5px);
+  opacity: .22;
+  mix-blend-mode: overlay;
+  transform: translateY(-20%);
+  animation: splScan 1.6s linear infinite;
+}
+
+.site-preloader .spl-inner{
+  position: relative;
+  width: min(980px, calc(100vw - 44px));
+  text-align: center;
+  padding: 22px 18px 18px;
+}
+
+.site-preloader .spl-title{
+  font-family: var(--ff2, "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial);
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: clamp(26px, 3.6vw, 54px);
+  line-height: 1.05;
+  position: relative;
+  display: inline-block;
+  text-shadow: 0 18px 60px rgba(0,0,0,.65);
+}
+
+.site-preloader .spl-title::before,
+.site-preloader .spl-title::after{
+  content: attr(data-text);
+  position:absolute;
+  left:0; top:0;
+  width:100%;
+  opacity:.55;
+  pointer-events:none;
+  mix-blend-mode: screen;
+}
+
+.site-preloader .spl-title::before{
+  transform: translateX(-1px);
+  color: color-mix(in srgb, var(--a2) 65%, #fff);
+  clip-path: inset(0 0 0 0);
+  animation: splGlitch1 1.1s steps(2,end) infinite;
+}
+
+.site-preloader .spl-title::after{
+  transform: translateX(1px);
+  color: color-mix(in srgb, var(--a1) 60%, #fff);
+  clip-path: inset(0 0 0 0);
+  animation: splGlitch2 1.35s steps(3,end) infinite;
+}
+
+.site-preloader .spl-sub{
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  opacity: .62;
+}
+
+.site-preloader .spl-bar{
+  margin-top: 18px;
+  height: 8px;
+  width: 100vw;
+  margin-left: calc(50% - 50vw); /* flush to screen edges */
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.08) inset,
+    0 18px 60px rgba(0,0,0,.55);
+}
+
+.site-preloader .spl-bar-fill{
+  display:block;
+  height: 100%;
+  width: 100%;
+  transform-origin: left center;
+  transform: scaleX(0);
+  background: linear-gradient(90deg,
+    color-mix(in srgb, var(--a1) 85%, #fff),
+    color-mix(in srgb, var(--a3) 85%, #fff),
+    color-mix(in srgb, var(--a2) 80%, #fff));
+  background-size: 220% 100%;
+  filter: saturate(1.2);
+  animation:
+    splFill 2s cubic-bezier(.2,.85,.2,1) forwards,
+    splGradient 1.4s ease-in-out infinite;
+}
+
+/* Exit state */
+.site-preloader.is-done{
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes splFill{
+  0%   { transform: scaleX(0); }
+  10%  { transform: scaleX(.08); }
+  55%  { transform: scaleX(.78); }
+  80%  { transform: scaleX(.92); }
+  100% { transform: scaleX(1); }
+}
+
+@keyframes splGradient{
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes splScan{
+  from { transform: translateY(-25%); }
+  to   { transform: translateY(25%); }
+}
+
+@keyframes splNoise{
+  0%   { transform: translate3d(0,0,0); opacity:.25; }
+  50%  { transform: translate3d(-6px, 4px,0); opacity:.32; }
+  100% { transform: translate3d(6px,-4px,0); opacity:.25; }
+}
+
+@keyframes splGlitch1{
+  0% { clip-path: inset(0 0 100% 0); }
+  15%{ clip-path: inset(12% 0 70% 0); }
+  30%{ clip-path: inset(62% 0 18% 0); }
+  45%{ clip-path: inset(28% 0 52% 0); }
+  60%{ clip-path: inset(72% 0 10% 0); }
+  75%{ clip-path: inset(8% 0 78% 0); }
+  100%{ clip-path: inset(0 0 100% 0); }
+}
+
+@keyframes splGlitch2{
+  0% { clip-path: inset(0 0 100% 0); }
+  18%{ clip-path: inset(54% 0 24% 0); }
+  36%{ clip-path: inset(10% 0 74% 0); }
+  54%{ clip-path: inset(68% 0 12% 0); }
+  72%{ clip-path: inset(22% 0 56% 0); }
+  100%{ clip-path: inset(0 0 100% 0); }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .site-preloader .spl-bar-fill,
+  .site-preloader .spl-noise,
+  .site-preloader .spl-scanlines,
+  .site-preloader .spl-title::before,
+  .site-preloader .spl-title::after{
+    animation: none !important;
+  }
+  .site-preloader .spl-bar-fill{ transform: scaleX(1); }
 }
