@@ -2316,13 +2316,13 @@ body > *:not(.site-preloader) {
     transform: scaleX(0);
   }
   10% {
-    transform: scaleX(0.08);
+    transform: scaleX(0.1);
   }
   55% {
-    transform: scaleX(0.78);
+    transform: scaleX(0.85);
   }
   80% {
-    transform: scaleX(0.92);
+    transform: scaleX(0.98);
   }
   100% {
     transform: scaleX(1);

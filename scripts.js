@@ -8,55 +8,74 @@
     window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // ===== Preloader (2s) =====
-  const preloader = document.getElementById("site-preloader");
-  const PRELOAD_MIN_MS = 2000;
-  const preloadStart =
-    typeof window.__preloadStart === "number"
-      ? window.__preloadStart
-      : performance.now();
+    // ===== Preloader (синхронизированная версия) =====
+const preloader = document.getElementById("site-preloader");
+const preloadBar = preloader ? preloader.querySelector('.spl-bar-fill') : null;
 
-  const endPreloader = () => {
-    if (!preloader) {
-      document.documentElement.classList.remove("is-loading");
-      return;
-    }
+// Функция для завершения прелоадера
+const endPreloader = () => {
+  if (!preloader) {
+    document.documentElement.classList.remove("is-loading");
+    return;
+  }
+  
+  // Завершаем анимацию полоски (если еще не завершена)
+  if (preloadBar) {
+    preloadBar.style.transform = 'scaleX(1)';
+    preloadBar.style.animation = 'none';
+  }
+  
+  // Даем немного времени для завершения визуальной анимации
+  setTimeout(() => {
     preloader.classList.add("is-done");
     document.documentElement.classList.remove("is-loading");
 
-    // remove node after fade
-    window.setTimeout(() => {
+    // Удаляем прелоадер после fade
+    setTimeout(() => {
       try {
         preloader.remove();
       } catch (e) {
         preloader.parentNode && preloader.parentNode.removeChild(preloader);
       }
     }, 550);
-  };
+  }, 100);
+};
 
+// Управление прелоадером
+let resourcesLoaded = false;
+let minTimeElapsed = false;
+let preloaderEnded = false;
 
-  if (preloader && reduceMotion) {
-    // make the bar appear full (CSS sets it)
-    window.addEventListener(
-      "load",
-      () => {
-        const elapsed = performance.now() - preloadStart;
-        const wait = Math.max(0, 250 - elapsed);
-        window.setTimeout(endPreloader, wait);
-      },
-      { once: true }
-    );
-  } else {
-    window.addEventListener(
-      "load",
-      () => {
-        const elapsed = performance.now() - preloadStart;
-        const wait = Math.max(0, PRELOAD_MIN_MS - elapsed);
-        window.setTimeout(endPreloader, wait);
-      },
-      { once: true }
-    );
+const checkPreloader = () => {
+  if (preloaderEnded) return;
+  
+  // Если все ресурсы загружены и прошло минимальное время (1.5 секунды для эффекта)
+  if (resourcesLoaded && minTimeElapsed) {
+    preloaderEnded = true;
+    endPreloader();
   }
+};
+
+// Минимальное время показа прелоадера - 1.5 секунды (вместо 2)
+setTimeout(() => {
+  minTimeElapsed = true;
+  checkPreloader();
+}, reduceMotion ? 500 : 1500); // Быстрее при reduced motion
+
+// Слушаем полную загрузку страницы
+window.addEventListener('load', () => {
+  resourcesLoaded = true;
+  checkPreloader();
+}, { once: true });
+
+// Аварийный таймаут: если что-то пошло не так, скрываем через 3 секунды максимум
+setTimeout(() => {
+  if (!preloaderEnded) {
+    preloaderEnded = true;
+    endPreloader();
+  }
+}, 3000);
+
 
   const STORAGE_KEY = "growth-lab-theme";
 
