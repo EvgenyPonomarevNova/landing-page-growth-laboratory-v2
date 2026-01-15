@@ -6,6 +6,74 @@
 
   const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // ===== МГНОВЕННОЕ ПЕРЕКЛЮЧЕНИЕ ТЕМЫ =====
+  const STORAGE_KEY = 'growth-lab-theme';
+  
+  // Получить текущую тему
+  const getCurrentTheme = () => {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) return saved;
+    // Если нет сохраненной темы, проверяем системную
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return prefersDark ? 'dark' : 'light';
+  };
+  
+  // Применить тему МГНОВЕННО
+  const applyTheme = (theme) => {
+    const isDark = theme === 'dark';
+    
+    // Мгновенное переключение через атрибут data-theme
+    if (isDark) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+    
+    localStorage.setItem(STORAGE_KEY, theme);
+    
+    // Обновить иконки на кнопках
+    const themeBtns = $$('.theme-toggle');
+    themeBtns.forEach(btn => {
+      const sunIcon = btn.querySelector('.theme-icon.sun');
+      const moonIcon = btn.querySelector('.theme-icon.moon');
+      if (sunIcon && moonIcon) {
+        sunIcon.style.display = isDark ? 'none' : 'block';
+        moonIcon.style.display = isDark ? 'block' : 'none';
+      }
+    });
+  };
+  
+  // Переключить тему
+  const toggleTheme = () => {
+    const current = getCurrentTheme();
+    const newTheme = current === 'light' ? 'dark' : 'light';
+    applyTheme(newTheme);
+    return newTheme;
+  };
+  
+  // Инициализация темы при загрузке (сразу!)
+  const initTheme = () => {
+    const theme = getCurrentTheme();
+    applyTheme(theme);
+    
+    // Обработчики для кнопок переключения темы
+    const themeToggle = $('#themeToggle');
+    const themeToggleMobile = $('#themeToggleMobile');
+    
+    if (themeToggle) {
+      on(themeToggle, 'click', () => toggleTheme());
+    }
+    
+    if (themeToggleMobile) {
+      on(themeToggleMobile, 'click', () => toggleTheme());
+    }
+  };
+  
+  // Инициализируем тему СРАЗУ при загрузке
+  initTheme();
+
+  // ===== ОСТАЛЬНОЙ КОД БЕЗ ИЗМЕНЕНИЙ =====
+  
   // Smooth scroll
   document.documentElement.style.scrollBehavior = 'smooth';
 
