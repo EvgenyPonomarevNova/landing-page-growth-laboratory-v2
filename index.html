@@ -1,1271 +1,636 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <script>
-      document.documentElement.classList.add("has-js");
-    </script>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <script>document.documentElement.classList.add("has-js")</script>
     <title>Лаборатория роста — маркетинговые стратегии и performance</title>
-    <meta
-      name="description"
-      content="Маркетинговое агентство. Стратегии, выход на рынок, рост продаж на маркетплейсах, реклама, SEO и аналитика, digital‑аудит."
-    />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-
-  <body>
+    <meta name="description" content="Маркетинговое агентство. Стратегии, выход на рынок, рост продаж на маркетплейсах, реклама, SEO и аналитика, digital‑аудит.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
     <div class="site-preloader" id="site-preloader" aria-hidden="true">
-      <div class="spl-bg" aria-hidden="true"></div>
-      <div class="spl-scanlines" aria-hidden="true"></div>
-      <div class="spl-inner">
-        <div class="spl-title" data-text="ЛАБОРАТОРИЯ РОСТА">
-          ЛАБОРАТОРИЯ РОСТА
+        <div class="spl-bg" aria-hidden="true"></div>
+        <div class="spl-scanlines" aria-hidden="true"></div>
+        <div class="spl-inner">
+            <div class="spl-title" data-text="ЛАБОРАТОРИЯ РОСТА">ЛАБОРАТОРИЯ РОСТА</div>
+            <div class="spl-sub">marketing / strategy / growth</div>
+            <div class="spl-bar" role="presentation" aria-hidden="true"><span class="spl-bar-fill"></span></div>
         </div>
-        <div class="spl-sub">marketing / strategy / growth</div>
-        <div class="spl-bar" role="presentation" aria-hidden="true">
-          <span class="spl-bar-fill"></span>
-        </div>
-      </div>
-      <div class="spl-noise" aria-hidden="true"></div>
+        <div class="spl-noise" aria-hidden="true"></div>
     </div>
-
     <div class="progress" id="progress"></div>
     <div class="bg-blobs" aria-hidden="true">
-      <div class="blob b1"></div>
-      <div class="blob b2"></div>
-      <div class="blob b3"></div>
-      <div class="grain"></div>
+        <div class="blob b1"></div>
+        <div class="blob b2"></div>
+        <div class="blob b3"></div>
+        <div class="grain"></div>
     </div>
-
     <header class="hdr" id="hdr">
-      <div class="container">
-        <div class="nav">
-          <a class="brand" href="#top" aria-label="Лаборатория роста">
-            <div class="logo-wrapper">
-              <img
-                src="./img/logo-light.svg"
-                alt="Лаборатория роста"
-                class="brand-mark logo-light"
-              />
-              <img
-                src="./img/logo-dark.svg"
-                alt="Лаборатория роста"
-                class="brand-mark logo-dark"
-              />
-            </div>
-            <div class="brand-txt">
-              <em>стратегия • performance • аналитика</em>
-            </div>
-          </a>
-
-          <nav class="links" aria-label="Навигация">
-            <a href="#about">О нас</a>
-            <a href="#services">Услуги</a>
-            <a href="#benefits">Преимущества</a>
-            <a href="#cases">Кейсы</a>
-            <a href="#clients">Клиенты</a>
-            <a href="#contacts">Контакты</a>
-          </nav>
-
-          <div class="cta">
-            <button
-              class="btn theme-toggle magnetic"
-              id="themeToggle"
-              type="button"
-              aria-label="Переключить тему"
-            >
-              <svg
-                class="theme-icon sun"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  d="M12 2v2M12 20v2M4 12H2M22 12h-2M5.6 5.6l1.4-1.4M17.8 17.8l1.4-1.4M18.4 5.6l-1.4-1.4M6.2 17.8l-1.4-1.4M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                />
-              </svg>
-              <svg
-                class="theme-icon moon"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                />
-              </svg>
-            </button>
-
-            <button class="btn primary magnetic" id="openBrief" type="button">
-              Обсудить проект
-            </button>
-          </div>
-
-          <div class="burger" aria-label="Меню">
-            <button
-              id="burgerBtn"
-              aria-controls="mobileMenu"
-              aria-expanded="false"
-              title="Меню"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M4 7h16M4 12h16M4 17h16"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        <div class="mobile" id="mobileMenu" hidden>
-          <div class="divider"></div>
-          <div class="row">
-            <a class="mLink" href="#about">О нас</a>
-            <a class="mLink" href="#services">Услуги</a>
-            <a class="mLink" href="#benefits">Преимущества</a>
-            <a class="mLink" href="#cases">Кейсы</a>
-            <a class="mLink" href="#clients">Клиенты</a>
-            <a class="mLink" href="#contacts">Контакты</a>
-            <button
-              class="btn theme-toggle magnetic"
-              id="themeToggleMobile"
-              type="button"
-            >
-              <svg
-                class="theme-icon sun"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  d="M12 2v2M12 20v2M4 12H2M22 12h-2M5.6 5.6l1.4-1.4M17.8 17.8l1.4-1.4M18.4 5.6l-1.4-1.4M6.2 17.8l-1.4-1.4M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                />
-              </svg>
-              <svg
-                class="theme-icon moon"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                />
-              </svg>
-              Сменить тему
-            </button>
-            <button
-              class="btn primary magnetic"
-              id="openBriefMobile"
-              type="button"
-            >
-              Обсудить
-            </button>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <main class="container" id="top">
-      <!-- HERO -->
-      <section class="hero">
-        <div class="hero-grid">
-          <div class="hero-copy reveal">
-            <div class="kicker">
-              <span class="kdot" aria-hidden="true"></span>
-              digital‑агентство про рост, а не «шум»
-            </div>
-
-            <h1>
-              Рост, который видно<br />
-              <span class="grad">в цифрах</span> — и в интерфейсе.
-            </h1>
-
-            <p class="lead">
-              Мы находим точки роста, собираем систему маркетинга под нишу и
-              масштабируем продажи: от стратегии и упаковки до
-              performance‑каналов, SEO и сквозной аналитики.
-            </p>
-
-            <div class="hero-actions">
-              <button class="btn primary magnetic" id="heroCta" type="button">
-                Обсудить задачу
-              </button>
-              <a class="btn magnetic" href="#services">Смотреть услуги</a>
-            </div>
-
-            <div class="pill-row" aria-label="Коротко о подходе">
-              <span class="pill">Стратегия → гипотезы → запуск</span>
-              <span class="pill">BI‑метрики и прозрачность</span>
-              <span class="pill">Креатив без перегруза</span>
-            </div>
-          </div>
-
-          <div
-            class="hero-visual reveal"
-            aria-label="Интерактивный график роста"
-          >
-            <div class="hero-visual-bg" aria-hidden="true"></div>
-
-            <div class="chart-wrap naked" id="chartWrap">
-              <div class="chart-head">
-                <div class="mini">Интерактивный график роста</div>
-                <div class="legend" aria-label="Легенда">
-                  <div class="tag" data-series="revenue">
-                    <span class="swatch"></span>Выручка
-                  </div>
-                  <div class="tag" data-series="leads">
-                    <span class="swatch alt"></span>Лиды
-                  </div>
-                  <div class="tag" data-series="roi">
-                    <span class="swatch roi"></span>ROI
-                  </div>
+        <div class="container">
+            <div class="nav">
+                <a class="brand" href="#top" aria-label="Лаборатория роста">
+                    <div class="logo-wrapper">
+                        <img src="./img/logo-light.svg" alt="Лаборатория роста" class="brand-mark logo-light" >
+                        <img src="./img/logo-dark.svg" alt="Лаборатория роста" class="brand-mark logo-dark" >
+                    </div>
+                    <div class="brand-txt"><em>стратегия • performance • аналитика</em></div>
+                </a>
+                <nav class="links" aria-label="Навигация">
+                    <a href="#about">О нас</a>
+                    <a href="#services">Услуги</a>
+                    <a href="#benefits">Преимущества</a>
+                    <a href="#cases">Кейсы</a>
+                    <a href="#clients">Клиенты</a>
+                    <a href="#contacts">Контакты</a>
+                </nav>
+                <div class="cta">
+                    <button class="btn theme-toggle magnetic" id="themeToggle" type="button" aria-label="Переключить тему">
+                        <svg class="theme-icon sun" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5.6 5.6l1.4-1.4M17.8 17.8l1.4-1.4M18.4 5.6l-1.4-1.4M6.2 17.8l-1.4-1.4M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                        </svg>
+                        <svg class="theme-icon moon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                        </svg>
+                    </button>
+                    <button class="btn primary magnetic" id="openBrief" type="button">Обсудить проект</button>
                 </div>
-              </div>
-
-              <div class="chart-kpi" aria-hidden="true">
-                <div class="kpi-num" id="kpiNum">+92%</div>
-                <div class="kpi-label" id="kpiLabel">Выручка • Мес 6</div>
-              </div>
-
-              <div class="chart-hint">
-                <span class="hint-dot" aria-hidden="true"></span>
-                Наведи или проведи по графику — подсказка «прилипает» к линии
-              </div>
-
-              <div class="chart-stage" id="chartStage">
-                <svg
-                  class="chart"
-                  id="chart"
-                  viewBox="0 0 720 260"
-                  preserveAspectRatio="none"
-                  aria-label="График роста"
-                >
-                  <defs>
-                    <linearGradient id="gradLine" x1="0" x2="1" y1="0" y2="0">
-                      <stop offset="0%" stop-color="var(--a1)" />
-                      <stop offset="55%" stop-color="var(--a2)" />
-                      <stop offset="100%" stop-color="var(--a3)" />
-                    </linearGradient>
-                    <linearGradient id="gradArea" x1="0" x2="0" y1="0" y2="1">
-                      <stop offset="0%" stop-color="rgba(112, 80, 255, .20)" />
-                      <stop offset="100%" stop-color="rgba(112, 80, 255, 0)" />
-                    </linearGradient>
-                    <filter
-                      id="softGlow"
-                      x="-40%"
-                      y="-40%"
-                      width="180%"
-                      height="180%"
-                    >
-                      <feGaussianBlur stdDeviation="6" result="blur" />
-                      <feColorMatrix
-                        type="matrix"
-                        values="
-                      1 0 0 0 0
-                      0 1 0 0 0
-                      0 0 1 0 0
-                      0 0 0 .6 0"
-                      />
-                      <feMerge>
-                        <feMergeNode in="blur" />
-                        <feMergeNode in="SourceGraphic" />
-                      </feMerge>
-                    </filter>
-                  </defs>
-
-                  <g class="grid" id="grid"></g>
-                  <path class="area" id="area" d=""></path>
-                  <path class="line" id="line" d=""></path>
-                  <g id="points"></g>
-                  <g id="cursor">
-                    <line
-                      class="cross"
-                      id="crossV"
-                      x1="0"
-                      x2="0"
-                      y1="0"
-                      y2="0"
-                    ></line>
-                    <circle class="glowdot" id="glowDot" r="6"></circle>
-                  </g>
-                </svg>
-
-                <div
-                  class="tooltip"
-                  id="tooltip"
-                  role="status"
-                  aria-live="polite"
-                >
-                  <b id="ttTitle">Этап</b>
-                  <span class="t2" id="ttText">Подсказка</span>
+                <div class="burger" aria-label="Меню">
+                    <button id="burgerBtn" aria-controls="mobileMenu" aria-expanded="false" title="Меню">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        </svg>
+                    </button>
                 </div>
-              </div>
             </div>
-
-            <div class="stat-floats" aria-hidden="true">
-              <div class="stat-float cut2">
-                <b>6 направлений</b>
-                <span>стратегия • performance • SEO • аналитика</span>
-              </div>
-              <div class="stat-float cut3">
-                <b>Дизайн‑ориентированный подход</b>
-                <span
-                  >не «сеткой», а композиционно — как в премиум‑агентствах</span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ABOUT -->
-      <section id="about">
-        <div class="section-head reveal">
-          <div>
-            <h2>О нас</h2>
-            <p class="sub">
-              Мы проектируем маркетинг как продукт: понятная система + красивый
-              интерфейс + цифры.
-            </p>
-          </div>
-        </div>
-
-        <div class="grid about-grid">
-          <article class="card about-card">
-            <div class="card-inner">
-              <b class="card-title">Что вы получите</b>
-              <p class="sub">
-                Чёткий план роста: где взять спрос, как упаковать предложение,
-                какие каналы запускать и как измерять результат. Мы не
-                "накидываем идей" — мы проектируем систему.
-              </p>
-              <div class="pill-row" style="margin-top: 14px">
-                <span class="pill">Исследование и стратегия</span>
-                <span class="pill">Запуск performance</span>
-                <span class="pill">SEO и контент</span>
-                <span class="pill">BI / сквозная аналитика</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card about-card">
-            <div class="card-inner">
-              <b class="card-title">Как работаем</b>
-              <div class="kv">
-                <div>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M12 2l3 7h7l-5.6 4.1 2.1 7-6.5-4.5L5.6 20l2.1-7L2 9h7l3-7z"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <span
-                    >Сначала — диагностика и цели. Потом — гипотезы и план
-                    запусков.</span
-                  >
-                </div>
-                <div>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M4 19V5m0 14h16"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                    />
-                    <path
-                      d="M7 15l4-4 3 3 6-7"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <span>Каждую неделю — измеряем, улучшаем, масштабируем.</span>
-                </div>
-                <div>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M12 22a9 9 0 1 0-9-9"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                    />
-                    <path
-                      d="M3 13l3-3 3 3"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <span>Прозрачность: отчёты понятным языком + цифры.</span>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="card about-card">
-            <div class="card-inner">
-              <b class="card-title">Упакуем рост как историю</b>
-              <p>
-                Делаем «вау»‑подачу без агрессивной лидогенерации: чисто,
-                дорого, внятно.
-              </p>
-              <div class="callout-row">
-                <span class="chip">UX</span>
-                <span class="chip">Метрики</span>
-                <span class="chip">Композиция</span>
-                <span class="chip">Анимации</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- SERVICES -->
-      <section id="services">
-        <div class="section-head reveal">
-          <div>
-            <h2>Услуги</h2>
-            <p class="sub">
-              Шесть направлений — как набор модулей. Можно запускать точечно или
-              собрать систему целиком.
-            </p>
-          </div>
-          <a class="btn magnetic" href="#contacts">Связаться</a>
-        </div>
-
-        <div class="grid services reveal">
-          <article class="svc">
-            <div class="in">
-              <div class="top">
-                <span class="svc-tag">Strategy</span>
-              </div>
-              <h3>Подбор маркетинговых стратегий</h3>
-              <p>Стратегия, оффер, KPI, план запусков.</p>
-              <div
-                class="more"
-                data-details="Разрабатываем комплексную маркетинговую стратегию, которая учитывает особенности вашего бизнеса и рынка. Определяем ключевые точки роста, формируем уникальное торговое предложение и устанавливаем измеримые KPI."
-              >
-                Подробнее <span aria-hidden="true">→</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="svc">
-            <div class="in">
-              <div class="top">
-                <span class="svc-tag">Research</span>
-              </div>
-              <h3>Выход на рынок и исследования</h3>
-              <p>Поиск точек роста, гипотез, позиционирование.</p>
-              <div
-                class="more"
-                data-details="Проводим глубокий анализ рынка, конкурентов и целевой аудитории. Выявляем тренды и формируем гипотезы для тестирования. Помогаем с правильным позиционированием и выстраиванием коммуникации."
-              >
-                Подробнее <span aria-hidden="true">→</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="svc">
-            <div class="in">
-              <div class="top">
-                <span class="svc-tag">Marketplace</span>
-              </div>
-              <h3>Рост продаж на маркетплейсах</h3>
-              <p>Performance‑кампании, контент и оптимизация карточек.</p>
-              <div
-                class="more"
-                data-details="Оптимизируем карточки товаров, создаем продающий контент, настраиваем и ведем рекламные кампании на маркетплейсах. Работаем над улучшением видимости и конверсии."
-              >
-                Подробнее <span aria-hidden="true">→</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="svc">
-            <div class="in">
-              <div class="top">
-                <span class="svc-tag">Ads</span>
-              </div>
-              <h3>Контекстная и медийная реклама</h3>
-              <p>Запуск и ведение кампаний, креативы, оптимизация.</p>
-              <div
-                class="more"
-                data-details="Создаем и запускаем рекламные кампании в Яндекс.Директ, Google Ads и социальных сетях. Разрабатываем креативы, оптимизируем ставки и бюджет для достижения максимальной эффективности."
-              >
-                Подробнее <span aria-hidden="true">→</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="svc">
-            <div class="in">
-              <div class="top">
-                <span class="svc-tag">SEO</span>
-              </div>
-              <h3>SEO и WEB‑аналитика</h3>
-              <p>Семантика, контент, события, сквозная отчётность.</p>
-              <div
-                class="more"
-                data-details="Проводим аудит сайта, подбираем семантическое ядро, оптимизируем контент и техническую составляющую. Настраиваем сквозную аналитику для отслеживания эффективности."
-              >
-                Подробнее <span aria-hidden="true">→</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="svc">
-            <div class="in">
-              <div class="top">
-                <span class="svc-tag">Audit</span>
-              </div>
-              <h3>Marketing &amp; digital‑аудит</h3>
-              <p>Диагностика, UX, рекламные связки, A/B‑тесты.</p>
-              <div
-                class="more"
-                data-details="Анализируем текущую маркетинговую активность, выявляем слабые места и точки роста. Проводим UX-аудит, тестируем гипотезы и предлагаем решения для улучшения результатов."
-              >
-                Подробнее <span aria-hidden="true">→</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- BENEFITS -->
-      <section id="benefits">
-        <div class="section-head reveal">
-          <div>
-            <h2>Преимущества</h2>
-            <p class="sub">
-              Не обещаем "магии". Делаем дисциплину, которую приятно видеть.
-            </p>
-          </div>
-        </div>
-
-        <div class="benefits reveal">
-          <article class="benefit expandable">
-            <div class="benefit-header">
-              <div class="bicon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M4 19V5m0 14h16"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M7 15l4-4 3 3 6-7"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-              <div class="btxt">
-                <b>Системность</b>
-                <span
-                  >Единая логика: стратегия → тест → масштабирование. Никаких
-                  "случайных запусков".</span
-                >
-              </div>
-              <div class="expand-icon">+</div>
-            </div>
-            <div class="benefit-details">
-              <p>
-                Мы выстраиваем маркетинг как единую систему, где каждый элемент
-                логически связан с другим. Начинаем с глубокого анализа и
-                стратегии, тестируем гипотезы на реальных данных, и только потом
-                масштабируем успешные решения. Это исключает хаотичные траты
-                бюджета и обеспечивает предсказуемый результат.
-              </p>
-            </div>
-          </article>
-
-          <article class="benefit expandable">
-            <div class="benefit-header">
-              <div class="bicon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M5 20h14M7 20V9a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v11"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M9.5 12h5M9.5 15h5"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                  />
-                </svg>
-              </div>
-              <div class="btxt">
-                <b>Прозрачные метрики</b>
-                <span
-                  >Дашборд, события, цели. Быстро понятно, что работает и
-                  почему.</span
-                >
-              </div>
-              <div class="expand-icon">+</div>
-            </div>
-            <div class="benefit-details">
-              <p>
-                Вы получаете доступ к интерактивным дашбордам с ключевыми
-                метриками в реальном времени. Мы настраиваем сквозную аналитику,
-                отслеживаем каждое событие и конверсию. Все отчеты понятны даже
-                нетехническим специалистам — вы всегда видите, куда идет бюджет
-                и какой он приносит результат.
-              </p>
-            </div>
-          </article>
-
-          <article class="benefit expandable">
-            <div class="benefit-header">
-              <div class="bicon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M12 3l9 6-9 6-9-6 9-6z"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M3 15l9 6 9-6"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-              <div class="btxt">
-                <b>Креатив без перегруза</b>
-                <span
-                  >Современный стиль, мягкие эффекты, но главное — удобство и
-                  смысл.</span
-                >
-              </div>
-              <div class="expand-icon">+</div>
-            </div>
-            <div class="benefit-details">
-              <p>
-                Наши дизайнеры создают креативы, которые не просто красивы, но и
-                эффективны. Мы избегаем визуального перегруза, делая акцент на
-                удобстве восприятия и смысловой нагрузке. Каждый элемент дизайна
-                работает на достижение бизнес-целей и улучшение
-                пользовательского опыта.
-              </p>
-            </div>
-          </article>
-
-          <article class="benefit expandable">
-            <div class="benefit-header">
-              <div class="bicon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M12 2v4"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M12 18v4"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M4 12H2"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M22 12h-2"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M6.2 6.2l-1.4-1.4"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M19.2 19.2l-1.4-1.4"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M17.8 6.2l1.4-1.4"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M4.8 19.2l1.4-1.4"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                  />
-                </svg>
-              </div>
-              <div class="btxt">
-                <b>Скорость и гипотезы</b>
-                <span
-                  >Быстро проверяем идеи и оставляем только то, что даёт
-                  прирост.</span
-                >
-              </div>
-              <div class="expand-icon">+</div>
-            </div>
-            <div class="benefit-details">
-              <p>
-                Мы работаем по методологии быстрого тестирования гипотез. Вместо
-                долгих обсуждений — быстрые эксперименты с четкими метриками
-                успеха. Это позволяет быстро находить рабочие решения и
-                отсеивать неэффективные подходы, экономя ваше время и бюджет.
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- CASES -->
-      <section id="cases">
-        <div class="section-head reveal">
-          <div>
-            <h2>Кейсы</h2>
-            <p class="sub">Реальные проекты с измеримыми результатами роста.</p>
-          </div>
-
-          <div class="slider-ctl">
-            <button
-              class="iconbtn magnetic"
-              id="casesPrev"
-              aria-label="Предыдущий кейс"
-              type="button"
-            >
-              ←
-            </button>
-            <button
-              class="iconbtn magnetic"
-              id="casesNext"
-              aria-label="Следующий кейс"
-              type="button"
-            >
-              →
-            </button>
-          </div>
-        </div>
-
-        <div
-          class="cases-track reveal"
-          id="casesTrack"
-          aria-label="Слайдер кейсов"
-        >
-          <article class="case media">
-            <div class="case-media ph1" aria-hidden="true">
-              <img src="./img/orion.webp" alt="" class="case-media-img" loading="lazy"/>
-            </div>
-            <div class="case-cap">
-              <div class="case-title">
-                Стратегия выхода на рынок компании «Орион»
-              </div>
-              <div class="case-sub">
-                Исследование → позиционирование → план запусков и KPI
-              </div>
-              <div class="case-results">
-                <span>+156% рост лидов</span>
-                <span>-32% стоимость лида</span>
-                <span>3 месяца на запуск</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="case media">
-            <div class="case-media ph2" aria-hidden="true">
-              <img src="./img/market.webp" alt="" class="case-media-img" loading="lazy"/>
-            </div>
-            <div class="case-cap">
-              <div class="case-title">Рост продаж на маркетплейсах</div>
-              <div class="case-sub">
-                Оптимизация карточек → контент → performance → аналитика
-              </div>
-              <div class="case-results">
-                <span>+224% продаж на WB</span>
-                <span>4.8 рейтинг товаров</span>
-                <span>ROI 380%</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="case media">
-            <div class="case-media ph3" aria-hidden="true">
-              <img src="./img/Performance.webp" alt="" class="case-media-img" loading="lazy"/>
-            </div>
-            <div class="case-cap">
-              <div class="case-title">Performance-система для e-commerce</div>
-              <div class="case-sub">
-                Связки и креативы → A/B → снижение CAC и рост выручки
-              </div>
-              <div class="case-results">
-                <span>+92% выручки</span>
-                <span>-41% CAC</span>
-                <span>ROAS 4.2</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="case media">
-            <div class="case-media ph1" aria-hidden="true">
-              <img src="./img/FinTech.webp" alt="" class="case-media-img" loading="lazy"/>
-            </div>
-            <div class="case-cap">
-              <div class="case-title">SEO продвижение FinTech проекта</div>
-              <div class="case-sub">
-                Технический аудит → семантика → контент-стратегия
-              </div>
-              <div class="case-results">
-                <span>+320% органического трафика</span>
-                <span>15 запросов в ТОП-3</span>
-                <span>6 месяцев</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="case media">
-            <div class="case-media ph2" aria-hidden="true">
-              <img src="./img/strateg.webp" alt="" class="case-media-img" loading="lazy"/>
-            </div>
-            <div class="case-cap">
-              <div class="case-title">Rebranding и digital-стратегия</div>
-              <div class="case-sub">
-                Айдентика → сайт → рекламные каналы → аналитика
-              </div>
-              <div class="case-results">
-                <span>Новая ЦА +35 лет</span>
-                <span>+180% конверсий</span>
-                <span>Узнаваемость +67%</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="case media">
-            <div class="case-media ph3" aria-hidden="true">
-              <img src="./img/mobpr.webp" alt="" class="case-media-img" loading="lazy"/>
-            </div>
-            <div class="case-cap">
-              <div class="case-title">Мобильное приложение: запуск и рост</div>
-              <div class="case-sub">
-                ASO → UA кампании → ретаргетинг → аналитика
-              </div>
-              <div class="case-results">
-                <span>50K+ установок</span>
-                <span>CPI -28%</span>
-                <span>Retention 42% D7</span>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="slider-progress" aria-hidden="true">
-          <span id="casesProg"></span>
-        </div>
-      </section>
-
-      <!-- CLIENTS -->
-      <section id="clients">
-        <div class="section-head reveal">
-          <div>
-            <h2>Клиенты</h2>
-            <p class="sub">
-              Компании, которые доверили нам свой рост и получили результат
-            </p>
-          </div>
-        </div>
-
-        <div class="marquee reveal" aria-label="Бегущая строка клиентов">
-          <div class="marquee-track">
-            <div class="logo-pill">
-              <img
-                src="./img/yandex-logo-rus.svg"
-                alt="Yandex"
-                width="20"
-                height="20"
-              />
-            </div>
-            <div class="logo-pill">
-              <img src="./img/vk-logo.svg" alt="VK" width="20" height="20" />
-            </div>
-            <div class="logo-pill">
-              <img
-                src="./img/sber-logo-eng (1).svg"
-                alt="Сбер"
-                width="20"
-                height="20"
-              />
-            </div>
-            <div class="logo-pill">
-              <img
-                src="./img/yandex-music-sign-logo.svg"
-                alt="Яндекс Музыка"
-                width="20"
-                height="20"
-              />
-            </div>
-            <div class="logo-pill">
-              <img
-                src="./img/wildberries-sign-logo.svg"
-                alt="Wildberries"
-                width="20"
-                height="20"
-              />
-            </div>
-            <div class="logo-pill">
-              <img
-                src="./img/ozon-icon-logo.svg"
-                alt="OZON"
-                width="20"
-                height="20"
-              />
-            </div>
-            <div class="logo-pill">
-              <img
-                src="./img/t-bank-logo-en.svg"
-                alt="Тинькофф"
-                width="20"
-                height="20"
-              />
-            </div>
-            <div class="logo-pill">
-              <img
-                src="./img/telegram-logo.svg"
-                alt="Telegram"
-                width="20"
-                height="20"
-              />
-            </div>
-            <div class="logo-pill">
-              <img
-                src="./img/mail-ru-sign-logo.svg"
-                alt="Mail.ru Group"
-                width="20"
-                height="20"
-              />
-            </div>
-            <div class="logo-pill">
-              <img
-                src="./img/2gis-logo.svg"
-                alt="2ГИС"
-                width="20"
-                height="20"
-              />
-            </div>
-            <div class="logo-pill">
-              <img
-                src="./img/avito-logo.svg"
-                alt="Avito"
-                width="20"
-                height="20"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACTS -->
-      <section id="contacts">
-        <div class="section-head reveal">
-          <div>
-            <h2>Контакты</h2>
-            <p class="sub">
-              Свяжитесь с нами любым удобным способом или оставьте заявку на
-              обратный звонок
-            </p>
-          </div>
-        </div>
-
-        <div class="contact reveal">
-          <div class="panel side">
-            <div class="in">
-              <div class="mini">Контакты</div>
-              <div class="cc-title">Лаборатория роста</div>
-
-              <div class="cc-grid">
-                <div class="cc-item">
-                  <span class="cc-k">Email</span>
-                  <span class="cc-v" id="emailVal">hello@growth-lab.ru</span>
-                </div>
-                <div class="cc-item">
-                  <span class="cc-k">Телефон</span>
-                  <span class="cc-v">+7 (495) 123-45-67</span>
-                </div>
-                <div class="cc-item">
-                  <span class="cc-k">Telegram</span>
-                  <span class="cc-v">@growth_lab</span>
-                </div>
-                <div class="cc-item">
-                  <span class="cc-k">Адрес</span>
-                  <span class="cc-v">Москва, ул. Тверская, 12</span>
-                </div>
-                <div class="cc-item">
-                  <span class="cc-k">Режим работы</span>
-                  <span class="cc-v">Пн-Пт: 9:00-18:00</span>
-                </div>
-                <div class="cc-item">
-                  <span class="cc-k">Соцсети</span>
-                  <span class="cc-v">
-                    <a href="#" style="color: var(--a1); margin-right: 10px"
-                      ><img
-                        class="social-icon"
-                        src="./img/free-icon-vk-2111828.png"
-                        alt=""
-                    /></a>
-                    <a href="#" style="color: var(--a1)"
-                      ><img
-                        class="social-icon"
-                        src="./img/free-icon-telegram-739260.png"
-                        alt=""
-                    /></a>
-                  </span>
-                </div>
-              </div>
-
-              <div class="cc-foot">
-                <div class="hint">
-                  Отправьте запрос на консультацию — мы свяжемся с вами в
-                  течение 1 часа в рабочее время.
-                </div>
+            <div class="mobile" id="mobileMenu" hidden>
+                <div class="divider"></div>
                 <div class="row">
-                  <button class="btn magnetic" id="copyEmail" type="button">
-                    Скопировать email
-                  </button>
-                  <a class="btn magnetic" href="#top">Наверх</a>
+                    <a class="mLink" href="#about">О нас</a>
+                    <a class="mLink" href="#services">Услуги</a>
+                    <a class="mLink" href="#benefits">Преимущества</a>
+                    <a class="mLink" href="#cases">Кейсы</a>
+                    <a class="mLink" href="#clients">Клиенты</a>
+                    <a class="mLink" href="#contacts">Контакты</a>
+                    <button class="btn theme-toggle magnetic" id="themeToggleMobile" type="button" aria-label="Переключить тему">
+                        <svg class="theme-icon sun" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5.6 5.6l1.4-1.4M17.8 17.8l1.4-1.4M18.4 5.6l-1.4-1.4M6.2 17.8l-1.4-1.4M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                        </svg>
+                        <svg class="theme-icon moon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                        </svg>
+                        Сменить тему
+                    </button>
+                    <button class="btn primary magnetic" id="openBriefMobile" type="button">Обсудить</button>
                 </div>
-              </div>
             </div>
-          </div>
-
-          <div class="hint" style="margin-top: 20px">
-            <button
-              class="btn primary magnetic full-width"
-              id="openCallback"
-              type="button"
-            >
-              Запросить обратный звонок
-            </button>
-            <p>Или напишите нам в Telegram для оперативной связи:</p>
-            <a href="https://t.me/growth_lab" style="color: var(--a1)"
-              >@growth_lab</a
-            >
-          </div>
         </div>
-      </section>
+    </header>
+    <main class="container" id="top">
+        <section class="hero">
+            <div class="hero-grid">
+                <div class="hero-copy reveal">
+                    <div class="kicker"><span class="kdot" aria-hidden="true"></span>digital‑агентство про рост, а не «шум»</div>
+                    <h1>Рост, который видно<br><span class="grad">в цифрах</span> — и в интерфейсе.</h1>
+                    <p class="lead">Мы находим точки роста, собираем систему маркетинга под нишу и масштабируем продажи: от стратегии и упаковки до performance‑каналов, SEO и сквозной аналитики.</p>
+                    <div class="hero-actions">
+                        <button class="btn primary magnetic" id="heroCta" type="button">Обсудить задачу</button>
+                        <a class="btn magnetic" href="#services">Смотреть услуги</a>
+                    </div>
+                    <div class="pill-row" aria-label="Коротко о подходе">
+                        <span class="pill">Стратегия → гипотезы → запуск</span>
+                        <span class="pill">BI‑метрики и прозрачность</span>
+                        <span class="pill">Креатив без перегруза</span>
+                    </div>
+                </div>
+                <div class="hero-visual reveal" aria-label="Интерактивный график роста">
+                    <div class="hero-visual-bg" aria-hidden="true"></div>
+                    <div class="chart-wrap naked" id="chartWrap">
+                        <div class="chart-head">
+                            <div class="mini">Интерактивный график роста</div>
+                            <div class="legend" aria-label="Легенда">
+                                <div class="tag" data-series="revenue"><span class="swatch"></span>Выручка</div>
+                                <div class="tag" data-series="leads"><span class="swatch alt"></span>Лиды</div>
+                                <div class="tag" data-series="roi"><span class="swatch roi"></span>ROI</div>
+                            </div>
+                        </div>
+                        <div class="chart-kpi" aria-hidden="true">
+                            <div class="kpi-num" id="kpiNum">+92%</div>
+                            <div class="kpi-label" id="kpiLabel">Выручка • Мес 6</div>
+                        </div>
+                        <div class="chart-hint"><span class="hint-dot" aria-hidden="true"></span>Наведи или проведи по графику — подсказка «прилипает» к линии</div>
+                        <div class="chart-stage" id="chartStage">
+                            <svg class="chart" id="chart" viewBox="0 0 720 260" preserveAspectRatio="none" aria-label="График роста">
+                                <defs>
+                                    <linearGradient id="gradLine" x1="0" x2="1" y1="0" y2="0">
+                                        <stop offset="0%" stop-color="var(--a1)">
+                                        <stop offset="55%" stop-color="var(--a2)">
+                                        <stop offset="100%" stop-color="var(--a3)">
+                                    </linearGradient>
+                                    <linearGradient id="gradArea" x1="0" x2="0" y1="0" y2="1">
+                                        <stop offset="0%" stop-color="rgba(112, 80, 255, .20)">
+                                        <stop offset="100%" stop-color="rgba(112, 80, 255, 0)">
+                                    </linearGradient>
+                                    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+                                        <feGaussianBlur stdDeviation="6" result="blur">
+                                        <feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .6 0">
+                                        <feMerge>
+                                            <feMergeNode in="blur">
+                                            <feMergeNode in="SourceGraphic">
+                                        </feMerge>
+                                    </filter>
+                                </defs>
+                                <g class="grid" id="grid"></g>
+                                <path class="area" id="area" d=""></path>
+                                <path class="line" id="line" d=""></path>
+                                <g id="points"></g>
+                                <g id="cursor">
+                                    <line class="cross" id="crossV" x1="0" x2="0" y1="0" y2="0"></line>
+                                    <circle class="glowdot" id="glowDot" r="6"></circle>
+                                </g>
+                            </svg>
+                            <div class="tooltip" id="tooltip" role="status" aria-live="polite">
+                                <b id="ttTitle">Этап</b>
+                                <span class="t2" id="ttText">Подсказка</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-floats" aria-hidden="true">
+                        <div class="stat-float cut2"><b>6 направлений</b><span>стратегия • performance • SEO • аналитика</span></div>
+                        <div class="stat-float cut3"><b>Дизайн‑ориентированный подход</b><span>не «сеткой», а композиционно — как в премиум‑агентствах</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="about">
+            <div class="section-head reveal">
+                <div>
+                    <h2>О нас</h2>
+                    <p class="sub">Мы проектируем маркетинг как продукт: понятная система + красивый интерфейс + цифры.</p>
+                </div>
+            </div>
+            <div class="grid about-grid">
+                <article class="card about-card">
+                    <div class="card-inner">
+                        <b class="card-title">Что вы получите</b>
+                        <p class="sub">Чёткий план роста: где взять спрос, как упаковать предложение, какие каналы запускать и как измерять результат. Мы не "накидываем идей" — мы проектируем систему.</p>
+                        <div class="pill-row" style="margin-top: 14px">
+                            <span class="pill">Исследование и стратегия</span>
+                            <span class="pill">Запуск performance</span>
+                            <span class="pill">SEO и контент</span>
+                            <span class="pill">BI / сквозная аналитика</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="card about-card">
+                    <div class="card-inner">
+                        <b class="card-title">Как работаем</b>
+                        <div class="kv">
+                            <div>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M12 2l3 7h7l-5.6 4.1 2.1 7-6.5-4.5L5.6 20l2.1-7L2 9h7l3-7z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+                                </svg>
+                                <span>Сначала — диагностика и цели. Потом — гипотезы и план запусков.</span>
+                            </div>
+                            <div>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M4 19V5m0 14h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                                    <path d="M7 15l4-4 3 3 6-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                </svg>
+                                <span>Каждую неделю — измеряем, улучшаем, масштабируем.</span>
+                            </div>
+                            <div>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M12 22a9 9 0 1 0-9-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                                    <path d="M3 13l3-3 3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                </svg>
+                                <span>Прозрачность: отчёты понятным языком + цифры.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="card about-card">
+                    <div class="card-inner">
+                        <b class="card-title">Упакуем рост как историю</b>
+                        <p>Делаем «вау»‑подачу без агрессивной лидогенерации: чисто, дорого, внятно.</p>
+                        <div class="callout-row">
+                            <span class="chip">UX</span>
+                            <span class="chip">Метрики</span>
+                            <span class="chip">Композиция</span>
+                            <span class="chip">Анимации</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section id="services">
+            <div class="section-head reveal">
+                <div>
+                    <h2>Услуги</h2>
+                    <p class="sub">Шесть направлений — как набор модулей. Можно запускать точечно или собрать систему целиком.</p>
+                </div>
+                <a class="btn magnetic" href="#contacts">Связаться</a>
+            </div>
+            <div class="grid services reveal">
+                <article class="svc">
+                    <div class="in">
+                        <div class="top"><span class="svc-tag">Strategy</span></div>
+                        <h3>Подбор маркетинговых стратегий</h3>
+                        <p>Стратегия, оффер, KPI, план запусков.</p>
+                        <div class="more" data-details="Разрабатываем комплексную маркетинговую стратегию, которая учитывает особенности вашего бизнеса и рынка. Определяем ключевые точки роста, формируем уникальное торговое предложение и устанавливаем измеримые KPI.">Подробнее <span aria-hidden="true">→</span></div>
+                    </div>
+                </article>
+                <article class="svc">
+                    <div class="in">
+                        <div class="top"><span class="svc-tag">Research</span></div>
+                        <h3>Выход на рынок и исследования</h3>
+                        <p>Поиск точек роста, гипотез, позиционирование.</p>
+                        <div class="more" data-details="Проводим глубокий анализ рынка, конкурентов и целевой аудитории. Выявляем тренды и формируем гипотезы для тестирования. Помогаем с правильным позиционированием и выстраиванием коммуникации.">Подробнее <span aria-hidden="true">→</span></div>
+                    </div>
+                </article>
+                <article class="svc">
+                    <div class="in">
+                        <div class="top"><span class="svc-tag">Marketplace</span></div>
+                        <h3>Рост продаж на маркетплейсах</h3>
+                        <p>Performance‑кампании, контент и оптимизация карточек.</p>
+                        <div class="more" data-details="Оптимизируем карточки товаров, создаем продающий контент, настраиваем и ведем рекламные кампании на маркетплейсах. Работаем над улучшением видимости и конверсии.">Подробнее <span aria-hidden="true">→</span></div>
+                    </div>
+                </article>
+                <article class="svc">
+                    <div class="in">
+                        <div class="top"><span class="svc-tag">Ads</span></div>
+                        <h3>Контекстная и медийная реклама</h3>
+                        <p>Запуск и ведение кампаний, креативы, оптимизация.</p>
+                        <div class="more" data-details="Создаем и запускаем рекламные кампании в Яндекс.Директ, Google Ads и социальных сетях. Разрабатываем креативы, оптимизируем ставки и бюджет для достижения максимальной эффективности.">Подробнее <span aria-hidden="true">→</span></div>
+                    </div>
+                </article>
+                <article class="svc">
+                    <div class="in">
+                        <div class="top"><span class="svc-tag">SEO</span></div>
+                        <h3>SEO и WEB‑аналитика</h3>
+                        <p>Семантика, контент, события, сквозная отчётность.</p>
+                        <div class="more" data-details="Проводим аудит сайта, подбираем семантическое ядро, оптимизируем контент и техническую составляющую. Настраиваем сквозную аналитику для отслеживания эффективности.">Подробнее <span aria-hidden="true">→</span></div>
+                    </div>
+                </article>
+                <article class="svc">
+                    <div class="in">
+                        <div class="top"><span class="svc-tag">Audit</span></div>
+                        <h3>Marketing &amp; digital‑аудит</h3>
+                        <p>Диагностика, UX, рекламные связки, A/B‑тесты.</p>
+                        <div class="more" data-details="Анализируем текущую маркетинговую активность, выявляем слабые места и точки роста. Проводим UX-аудит, тестируем гипотезы и предлагаем решения для улучшения результатов.">Подробнее <span aria-hidden="true">→</span></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section id="benefits">
+            <div class="section-head reveal">
+                <div>
+                    <h2>Преимущества</h2>
+                    <p class="sub">Не обещаем "магии". Делаем дисциплину, которую приятно видеть.</p>
+                </div>
+            </div>
+            <div class="benefits reveal">
+                <article class="benefit expandable">
+                    <div class="benefit-header">
+                        <div class="bicon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                <path d="M4 19V5m0 14h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                                <path d="M7 15l4-4 3 3 6-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            </svg>
+                        </div>
+                        <div class="btxt">
+                            <b>Системность</b>
+                            <span>Единая логика: стратегия → тест → масштабирование. Никаких "случайных запусков".</span>
+                        </div>
+                        <div class="expand-icon">+</div>
+                    </div>
+                    <div class="benefit-details">
+                        <p>Мы выстраиваем маркетинг как единую систему, где каждый элемент логически связан с другим. Начинаем с глубокого анализа и стратегии, тестируем гипотезы на реальных данных, и только потом масштабируем успешные решения. Это исключает хаотичные траты бюджета и обеспечивает предсказуемый результат.</p>
+                    </div>
+                </article>
+                <article class="benefit expandable">
+                    <div class="benefit-header">
+                        <div class="bicon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 20h14M7 20V9a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                                <path d="M9.5 12h5M9.5 15h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                            </svg>
+                        </div>
+                        <div class="btxt">
+                            <b>Прозрачные метрики</b>
+                            <span>Дашборд, события, цели. Быстро понятно, что работает и почему.</span>
+                        </div>
+                        <div class="expand-icon">+</div>
+                    </div>
+                    <div class="benefit-details">
+                        <p>Вы получаете доступ к интерактивным дашбордам с ключевыми метриками в реальном времени. Мы настраиваем сквозную аналитику, отслеживаем каждое событие и конверсию. Все отчеты понятны даже нетехническим специалистам — вы всегда видите, куда идет бюджет и какой он приносит результат.</p>
+                    </div>
+                </article>
+                <article class="benefit expandable">
+                    <div class="benefit-header">
+                        <div class="bicon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 3l9 6-9 6-9-6 9-6z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+                                <path d="M3 15l9 6 9-6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+                            </svg>
+                        </div>
+                        <div class="btxt">
+                            <b>Креатив без перегруза</b>
+                            <span>Современный стиль, мягкие эффекты, но главное — удобство и смысл.</span>
+                        </div>
+                        <div class="expand-icon">+</div>
+                    </div>
+                    <div class="benefit-details">
+                        <p>Наши дизайнеры создают креативы, которые не просто красивы, но и эффективны. Мы избегаем визуального перегруза, делая акцент на удобстве восприятия и смысловой нагрузке. Каждый элемент дизайна работает на достижение бизнес-целей и улучшение пользовательского опыта.</p>
+                    </div>
+                </article>
+                <article class="benefit expandable">
+                    <div class="benefit-header">
+                        <div class="bicon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                                <path d="M12 18v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                                <path d="M4 12H2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                                <path d="M22 12h-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                                <path d="M6.2 6.2l-1.4-1.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                                <path d="M19.2 19.2l-1.4-1.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                                <path d="M17.8 6.2l1.4-1.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                                <path d="M4.8 19.2l1.4-1.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                                <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10z" stroke="currentColor" stroke-width="1.8">
+                            </svg>
+                        </div>
+                        <div class="btxt">
+                            <b>Скорость и гипотезы</b>
+                            <span>Быстро проверяем идеи и оставляем только то, что даёт прирост.</span>
+                        </div>
+                        <div class="expand-icon">+</div>
+                    </div>
+                    <div class="benefit-details">
+                        <p>Мы работаем по методологии быстрого тестирования гипотез. Вместо долгих обсуждений — быстрые эксперименты с четкими метриками успеха. Это позволяет быстро находить рабочие решения и отсеивать неэффективные подходы, экономя ваше время и бюджет.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section id="cases">
+            <div class="section-head reveal">
+                <div>
+                    <h2>Кейсы</h2>
+                    <p class="sub">Реальные проекты с измеримыми результатами роста.</p>
+                </div>
+                <div class="slider-ctl">
+                    <button class="iconbtn magnetic" id="casesPrev" aria-label="Предыдущий кейс" type="button">←</button>
+                    <button class="iconbtn magnetic" id="casesNext" aria-label="Следующий кейс" type="button">→</button>
+                </div>
+            </div>
+            <div class="cases-track reveal" id="casesTrack" aria-label="Слайдер кейсов">
+                <article class="case media">
+                    <div class="case-media ph1" aria-hidden="true"><img src="./img/orion.webp" alt="" class="case-media-img" loading="lazy" width="400" height="300"></div>
+                    <div class="case-cap">
+                        <div class="case-title">Стратегия выхода на рынок компании «Орион»</div>
+                        <div class="case-sub">Исследование → позиционирование → план запусков и KPI</div>
+                        <div class="case-results">
+                            <span>+156% рост лидов</span>
+                            <span>-32% стоимость лида</span>
+                            <span>3 месяца на запуск</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="case media">
+                    <div class="case-media ph2" aria-hidden="true"><img src="./img/market.webp" alt="" class="case-media-img" loading="lazy" width="400" height="300"></div>
+                    <div class="case-cap">
+                        <div class="case-title">Рост продаж на маркетплейсах</div>
+                        <div class="case-sub">Оптимизация карточек → контент → performance → аналитика</div>
+                        <div class="case-results">
+                            <span>+224% продаж на WB</span>
+                            <span>4.8 рейтинг товаров</span>
+                            <span>ROI 380%</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="case media">
+                    <div class="case-media ph3" aria-hidden="true"><img src="./img/Performance.webp" alt="" class="case-media-img" loading="lazy" width="400" height="300"></div>
+                    <div class="case-cap">
+                        <div class="case-title">Performance-система для e-commerce</div>
+                        <div class="case-sub">Связки и креативы → A/B → снижение CAC и рост выручки</div>
+                        <div class="case-results">
+                            <span>+92% выручки</span>
+                            <span>-41% CAC</span>
+                            <span>ROAS 4.2</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="case media">
+                    <div class="case-media ph1" aria-hidden="true"><img src="./img/FinTech.webp" alt="" class="case-media-img" loading="lazy" width="400" height="300"></div>
+                    <div class="case-cap">
+                        <div class="case-title">SEO продвижение FinTech проекта</div>
+                        <div class="case-sub">Технический аудит → семантика → контент-стратегия</div>
+                        <div class="case-results">
+                            <span>+320% органического трафика</span>
+                            <span>15 запросов в ТОП-3</span>
+                            <span>6 месяцев</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="case media">
+                    <div class="case-media ph2" aria-hidden="true"><img src="./img/strateg.webp" alt="" class="case-media-img" loading="lazy" width="400" height="300"></div>
+                    <div class="case-cap">
+                        <div class="case-title">Rebranding и digital-стратегия</div>
+                        <div class="case-sub">Айдентика → сайт → рекламные каналы → аналитика</div>
+                        <div class="case-results">
+                            <span>Новая ЦА +35 лет</span>
+                            <span>+180% конверсий</span>
+                            <span>Узнаваемость +67%</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="case media">
+                    <div class="case-media ph3" aria-hidden="true"><img src="./img/mobpr.webp" alt="" class="case-media-img" loading="lazy" width="400" height="300"></div>
+                    <div class="case-cap">
+                        <div class="case-title">Мобильное приложение: запуск и рост</div>
+                        <div class="case-sub">ASO → UA кампании → ретаргетинг → аналитика</div>
+                        <div class="case-results">
+                            <span>50K+ установок</span>
+                            <span>CPI -28%</span>
+                            <span>Retention 42% D7</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="slider-progress" aria-hidden="true"><span id="casesProg"></span></div>
+        </section>
+        <section id="clients">
+            <div class="section-head reveal">
+                <div>
+                    <h2>Клиенты</h2>
+                    <p class="sub">Компании, которые доверили нам свой рост и получили результат</p>
+                </div>
+            </div>
+            <div class="marquee reveal" aria-label="Бегущая строка клиентов">
+                <div class="marquee-track">
+                    <div class="logo-pill"><img src="./img/yandex-logo-rus.svg" alt="Yandex" width="20" height="20" loading="lazy"></div>
+                    <div class="logo-pill"><img src="./img/vk-logo.svg" alt="VK" width="20" height="20" loading="lazy"></div>
+                    <div class="logo-pill"><img src="./img/sber-logo-eng (1).svg" alt="Сбер" width="20" height="20" loading="lazy"></div>
+                    <div class="logo-pill"><img src="./img/yandex-music-sign-logo.svg" alt="Яндекс Музыка" width="20" height="20" loading="lazy"></div>
+                    <div class="logo-pill"><img src="./img/wildberries-sign-logo.svg" alt="Wildberries" width="20" height="20" loading="lazy"></div>
+                    <div class="logo-pill"><img src="./img/ozon-icon-logo.svg" alt="OZON" width="20" height="20" loading="lazy"></div>
+                    <div class="logo-pill"><img src="./img/t-bank-logo-en.svg" alt="Тинькофф" width="20" height="20" loading="lazy"></div>
+                    <div class="logo-pill"><img src="./img/telegram-logo.svg" alt="Telegram" width="20" height="20" loading="lazy"></div>
+                    <div class="logo-pill"><img src="./img/mail-ru-sign-logo.svg" alt="Mail.ru Group" width="20" height="20" loading="lazy"></div>
+                    <div class="logo-pill"><img src="./img/2gis-logo.svg" alt="2ГИС" width="20" height="20" loading="lazy"></div>
+                    <div class="logo-pill"><img src="./img/avito-logo.svg" alt="Avito" width="20" height="20" loading="lazy"></div>
+                </div>
+            </div>
+        </section>
+        <section id="contacts">
+            <div class="section-head reveal">
+                <div>
+                    <h2>Контакты</h2>
+                    <p class="sub">Свяжитесь с нами любым удобным способом или оставьте заявку на обратный звонок</p>
+                </div>
+            </div>
+            <div class="contact reveal">
+                <div class="panel side">
+                    <div class="in">
+                        <div class="mini">Контакты</div>
+                        <div class="cc-title">Лаборатория роста</div>
+                        <div class="cc-grid">
+                            <div class="cc-item">
+                                <span class="cc-k">Email</span>
+                                <span class="cc-v" id="emailVal">hello@growth-lab.ru</span>
+                            </div>
+                            <div class="cc-item">
+                                <span class="cc-k">Телефон</span>
+                                <span class="cc-v">+7 (495) 123-45-67</span>
+                            </div>
+                            <div class="cc-item">
+                                <span class="cc-k">Telegram</span>
+                                <span class="cc-v">@growth_lab</span>
+                            </div>
+                            <div class="cc-item">
+                                <span class="cc-k">Адрес</span>
+                                <span class="cc-v">Москва, ул. Тверская, 12</span>
+                            </div>
+                            <div class="cc-item">
+                                <span class="cc-k">Режим работы</span>
+                                <span class="cc-v">Пн-Пт: 9:00-18:00</span>
+                            </div>
+                            <div class="cc-item">
+                                <span class="cc-k">Соцсети</span>
+                                <span class="cc-v">
+                                    <a href="#" style="color: var(--a1); margin-right: 10px"><img class="social-icon" src="./img/free-icon-vk-2111828.png" alt="VK" loading="lazy" width="24" height="24"></a>
+                                    <a href="#" style="color: var(--a1)"><img class="social-icon" src="./img/free-icon-telegram-739260.png" alt="Telegram" loading="lazy" width="24" height="24"></a>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="cc-foot">
+                            <div class="hint">Отправьте запрос на консультацию — мы свяжемся с вами в течение 1 часа в рабочее время.</div>
+                            <div class="row">
+                                <button class="btn magnetic" id="copyEmail" type="button">Скопировать email</button>
+                                <a class="btn magnetic" href="#top">Наверх</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hint" style="margin-top: 20px">
+                    <button class="btn primary magnetic full-width" id="openCallback" type="button">Запросить обратный звонок</button>
+                    <p>Или напишите нам в Telegram для оперативной связи:</p>
+                    <a href="https://t.me/growth_lab" style="color: var(--a1)">@growth_lab</a>
+                </div>
+            </div>
+        </section>
     </main>
-
     <footer>
-      <div class="container">
-        <div class="frow">
-          <div>© <span id="year"></span> Лаборатория роста</div>
-          <div>Маркетинговое агентство полного цикла</div>
+        <div class="container">
+            <div class="frow">
+                <div>© <span id="year"></span> Лаборатория роста</div>
+                <div>Маркетинговое агентство полного цикла</div>
+            </div>
         </div>
-      </div>
     </footer>
-
-    <!-- Modal -->
-    <div
-      class="modal"
-      id="briefModal"
-      role="dialog"
-      aria-label="Бриф"
-      aria-hidden="true"
-    >
-      <div class="box">
-        <div class="top">
-          <div>
-            <b>Быстрый бриф (2 минуты)</b>
-            <div class="mmeta">
-              Заполни — и вернёмся с предложением по шагам.
+    <div class="modal" id="briefModal" role="dialog" aria-label="Бриф" aria-hidden="true">
+        <div class="box">
+            <div class="top">
+                <div>
+                    <b>Быстрый бриф (2 минуты)</b>
+                    <div class="mmeta">Заполни — и вернёмся с предложением по шагам.</div>
+                </div>
+                <button class="x magnetic" data-close="briefModal" aria-label="Закрыть" type="button">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    </svg>
+                </button>
             </div>
-          </div>
-          <button
-            class="x magnetic"
-            data-close="briefModal"
-            aria-label="Закрыть"
-            type="button"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M6 6l12 12M18 6L6 18"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-            </svg>
-          </button>
+            <div class="body">
+                <form id="briefForm">
+                    <div class="field">
+                        <label>Ниша / продукт</label>
+                        <input name="niche" placeholder="Например: b2b сервис / ecommerce / образование" required>
+                    </div>
+                    <div class="field">
+                        <label>Цель на ближайшие 2–3 месяца</label>
+                        <input name="goal" placeholder="Рост продаж / лидов / выход на рынок" required>
+                    </div>
+                    <div class="field">
+                        <label>Что уже пробовали</label>
+                        <textarea name="tried" placeholder="Каналы, бюджеты, результаты"></textarea>
+                    </div>
+                    <button class="btn primary magnetic" type="submit">Отправить бриф</button>
+                    <div class="hint">Демо‑форма: ничего не отправляет — просто подтверждение.</div>
+                </form>
+            </div>
         </div>
-        <div class="body">
-          <form id="briefForm">
-            <div class="field">
-              <label>Ниша / продукт</label>
-              <input
-                name="niche"
-                placeholder="Например: b2b сервис / ecommerce / образование"
-                required
-              />
-            </div>
-            <div class="field">
-              <label>Цель на ближайшие 2–3 месяца</label>
-              <input
-                name="goal"
-                placeholder="Рост продаж / лидов / выход на рынок"
-                required
-              />
-            </div>
-            <div class="field">
-              <label>Что уже пробовали</label>
-              <textarea
-                name="tried"
-                placeholder="Каналы, бюджеты, результаты"
-              ></textarea>
-            </div>
-            <button class="btn primary magnetic" type="submit">
-              Отправить бриф
-            </button>
-            <div class="hint">
-              Демо‑форма: ничего не отправляет — просто подтверждение.
-            </div>
-          </form>
-        </div>
-      </div>
     </div>
-
-    <!-- Callback Modal -->
-    <div
-      class="modal"
-      id="callbackModal"
-      role="dialog"
-      aria-label="Запрос обратного звонка"
-      aria-hidden="true"
-    >
-      <div class="box compact">
-        <div class="top">
-          <div>
-            <b>Запрос обратного звонка</b>
-            <div class="mmeta">
-              Оставьте контакт — мы перезвоним и уточним задачу.
+    <div class="modal" id="callbackModal" role="dialog" aria-label="Запрос обратного звонка" aria-hidden="true">
+        <div class="box compact">
+            <div class="top">
+                <div>
+                    <b>Запрос обратного звонка</b>
+                    <div class="mmeta">Оставьте контакт — мы перезвоним и уточним задачу.</div>
+                </div>
+                <button class="x magnetic" data-close="callbackModal" aria-label="Закрыть" type="button">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    </svg>
+                </button>
             </div>
-          </div>
-          <button
-            class="x magnetic"
-            data-close="callbackModal"
-            aria-label="Закрыть"
-            type="button"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M6 6l12 12M18 6L6 18"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-            </svg>
-          </button>
+            <div class="body">
+                <form id="callbackForm">
+                    <div class="field">
+                        <label>Имя <span class="required">*</span></label>
+                        <input name="name" placeholder="Как к вам обращаться" autocomplete="name" required>
+                    </div>
+                    <div class="field">
+                        <label>Телефон <span class="required">*</span></label>
+                        <input name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required>
+                    </div>
+                    <div class="field">
+                        <label>Telegram (опционально)</label>
+                        <input name="telegram" placeholder="@username">
+                    </div>
+                    <div class="field">
+                        <label>Удобное время для звонка</label>
+                        <select name="time">
+                            <option value="">Выберите время</option>
+                            <option value="10-12">10:00 - 12:00</option>
+                            <option value="12-14">12:00 - 14:00</option>
+                            <option value="14-16">14:00 - 16:00</option>
+                            <option value="16-18">16:00 - 18:00</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Коротко о задаче</label>
+                        <textarea name="comment" placeholder="Например: нужна консультация по запуску рекламы" rows="3"></textarea>
+                    </div>
+                    <button class="btn primary magnetic" type="submit">Отправить запрос</button>
+                    <div class="hint">Мы свяжемся с вами в выбранное время. Политика конфиденциальности.</div>
+                </form>
+            </div>
         </div>
-        <div class="body">
-          <form id="callbackForm">
-            <div class="field">
-              <label>Имя <span class="required">*</span></label>
-              <input
-                name="name"
-                placeholder="Как к вам обращаться"
-                autocomplete="name"
-                required
-              />
-            </div>
-            <div class="field">
-              <label>Телефон <span class="required">*</span></label>
-              <input
-                name="phone"
-                placeholder="+7 (___) ___-__-__"
-                autocomplete="tel"
-                required
-              />
-            </div>
-            <div class="field">
-              <label>Telegram (опционально)</label>
-              <input name="telegram" placeholder="@username" />
-            </div>
-            <div class="field">
-              <label>Удобное время для звонка</label>
-              <select name="time">
-                <option value="">Выберите время</option>
-                <option value="10-12">10:00 - 12:00</option>
-                <option value="12-14">12:00 - 14:00</option>
-                <option value="14-16">14:00 - 16:00</option>
-                <option value="16-18">16:00 - 18:00</option>
-              </select>
-            </div>
-            <div class="field">
-              <label>Коротко о задаче</label>
-              <textarea
-                name="comment"
-                placeholder="Например: нужна консультация по запуску рекламы"
-                rows="3"
-              ></textarea>
-            </div>
-
-            <button class="btn primary magnetic" type="submit">
-              Отправить запрос
-            </button>
-            <div class="hint">
-              Мы свяжемся с вами в выбранное время. Политика конфиденциальности.
-            </div>
-          </form>
-        </div>
-      </div>
     </div>
-
     <script src="./scripts.js"></script>
-  </body>
+</body>
 </html>

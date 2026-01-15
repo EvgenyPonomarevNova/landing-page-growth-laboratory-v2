@@ -851,7 +851,7 @@ h1 {
 .stat-floats {
   position: absolute;
   right: -8px;
-  bottom: -12px;
+  bottom: -70px;
   display: grid;
   gap: 10px;
   width: min(340px, 46%);
@@ -2009,7 +2009,7 @@ footer {
     display: none;
   } /* keep header clean */
   .logo-wrapper {
-    width: 140px;
+    width: 160px;
     height: 48px;
   }
 
