@@ -56,11 +56,11 @@ const checkPreloader = () => {
   }
 };
 
-// Минимальное время показа прелоадера - 1.5 секунды (вместо 2)
+// Минимальное время показа прелоадера - 1.5 секунды
 setTimeout(() => {
   minTimeElapsed = true;
   checkPreloader();
-}, reduceMotion ? 500 : 1500); // Быстрее при reduced motion
+}, reduceMotion ? 500 : 1300); // Быстрее при reduced motion
 
 // Слушаем полную загрузку страницы
 window.addEventListener('load', () => {
@@ -74,7 +74,7 @@ setTimeout(() => {
     preloaderEnded = true;
     endPreloader();
   }
-}, 3000);
+}, 1300);
 
 
   const STORAGE_KEY = "growth-lab-theme";
