@@ -4,33 +4,33 @@
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
   const on = (el, ev, fn, opts) => el && el.addEventListener(ev, fn, opts);
 
-  const reduceMotion =
-    window.matchMedia &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    // ===== Preloader (синхронизированная версия) =====
+ // ===== Preloader (ждём: load + fonts + decode критичных картинок) =====
 const preloader = document.getElementById("site-preloader");
-const preloadBar = preloader ? preloader.querySelector('.spl-bar-fill') : null;
+const preloadBar = preloader ? preloader.querySelector(".spl-bar-fill") : null;
 
-// Функция для завершения прелоадера
+const reduceMotion =
+  window.matchMedia &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const isMobile =
+  window.matchMedia &&
+  window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+
 const endPreloader = () => {
   if (!preloader) {
     document.documentElement.classList.remove("is-loading");
     return;
   }
-  
-  // Завершаем анимацию полоски (если еще не завершена)
+
   if (preloadBar) {
-    preloadBar.style.transform = 'scaleX(1)';
-    preloadBar.style.animation = 'none';
+    preloadBar.style.transform = "scaleX(1)";
+    preloadBar.style.animation = "none";
   }
-  
-  // Даем немного времени для завершения визуальной анимации
+
   setTimeout(() => {
     preloader.classList.add("is-done");
     document.documentElement.classList.remove("is-loading");
 
-    // Удаляем прелоадер после fade
     setTimeout(() => {
       try {
         preloader.remove();
@@ -38,43 +38,77 @@ const endPreloader = () => {
         preloader.parentNode && preloader.parentNode.removeChild(preloader);
       }
     }, 550);
-  }, 100);
+  }, 80);
 };
 
-// Управление прелоадером
-let resourcesLoaded = false;
+// 1) минимальное время показа (ты хотел ~2 секунды)
+const MIN_TIME = reduceMotion ? 500 : 2000;
+
+// 2) максимум, чтобы не зависнуть, если сеть плохая
+const MAX_TIME = 4500;
+
 let minTimeElapsed = false;
+let readyToShow = false;
 let preloaderEnded = false;
 
 const checkPreloader = () => {
   if (preloaderEnded) return;
-  
-  // Если все ресурсы загружены и прошло минимальное время (1.5 секунды для эффекта)
-  if (resourcesLoaded && minTimeElapsed) {
+  if (minTimeElapsed && readyToShow) {
     preloaderEnded = true;
     endPreloader();
   }
 };
 
-// Минимальное время показа прелоадера - 1.5 секунды
 setTimeout(() => {
   minTimeElapsed = true;
   checkPreloader();
-}, reduceMotion ? 500 : 1300); // Быстрее при reduced motion
+}, MIN_TIME);
 
-// Слушаем полную загрузку страницы
-window.addEventListener('load', () => {
-  resourcesLoaded = true;
-  checkPreloader();
-}, { once: true });
+// Ждём: window load + fonts + decode “первого экрана”
+const waitWindowLoad = new Promise((res) =>
+  window.addEventListener("load", res, { once: true })
+);
 
-// Аварийный таймаут: если что-то пошло не так, скрываем через 3 секунды максимум
+const waitFonts = (document.fonts && document.fonts.ready)
+  ? document.fonts.ready.catch(() => {})
+  : Promise.resolve();
+
+// Декодируем только критичные картинки (hero / первый экран).
+// Поставь на них атрибут: data-preload="1"
+const waitCriticalImages = () => {
+  const imgs = Array.from(document.querySelectorAll('img[data-preload="1"]'));
+  if (!imgs.length) return Promise.resolve();
+
+  return Promise.all(
+    imgs.map((img) => {
+      // если картинка уже есть — decode ускорит “без рывка”
+      if (img.complete && img.naturalWidth > 0) return Promise.resolve();
+      // подождём загрузку
+      return new Promise((resolve) => {
+        img.addEventListener("load", resolve, { once: true });
+        img.addEventListener("error", resolve, { once: true });
+      });
+    })
+  )
+  .then(() => Promise.all(
+    imgs.map((img) => (img.decode ? img.decode().catch(() => {}) : Promise.resolve()))
+  ));
+};
+
+Promise.all([waitWindowLoad, waitFonts, waitCriticalImages()])
+  .then(() => {
+    readyToShow = true;
+    checkPreloader();
+  });
+
+// аварийный таймаут (реально аварийный)
 setTimeout(() => {
   if (!preloaderEnded) {
     preloaderEnded = true;
     endPreloader();
   }
-}, 1300);
+}, MAX_TIME);
+
 
 
   const STORAGE_KEY = "growth-lab-theme";
